@@ -6,8 +6,7 @@
   "scripts": {
     "index": "node generate-index.js",
     "start": "cross-env NODE_ENV=development hugo server --gc --disableFastRender",
-    "build": "cross-env NODE_ENV=production hugo --gc --minify",
-    "deploy": "now --prod"
+    "build": "cross-env NODE_ENV=production hugo --gc --minify"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.0.6",

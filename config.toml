@@ -1,5 +1,5 @@
 title = "Masdap"
-baseurl = "https://masdap.now.sh/"
+baseurl = "https://masdap.netlify.com/"
 
 googleAnalytics = "undefined"
 disqusShortname = "masdap-blog"

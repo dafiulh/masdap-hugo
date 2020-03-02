@@ -103,9 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-# ZEIT Now configuration
-.now
-
 # Generated files by hugo
 public/
 resources/_gen/

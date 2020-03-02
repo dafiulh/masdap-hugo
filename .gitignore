@@ -105,3 +105,7 @@ dist
 
 # ZEIT Now configuration
 .now
+
+# Generated files by hugo
+public/
+resources/_gen/

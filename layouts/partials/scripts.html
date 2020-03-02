@@ -1,0 +1,10 @@
+{{ if not .Site.IsServer -}}
+{{- template "_internal/google_analytics_async.html" . -}}
+{{- end }}
+{{ $header := resources.Get "js/fixed-header.js" -}}
+{{- $menu := resources.Get "js/menu.js" -}}
+{{- $anchor := resources.Get "js/anchor.js" -}}
+{{- $lozad := resources.Get "vendor/lozad.min.js" -}}
+{{- $lazy := resources.Get "js/lazy-load.js" -}}
+{{- $jsBundle := slice $header $menu $anchor $lozad $lazy | resources.Concat "js/bundle.js" | minify | fingerprint -}}
+<script src="{{ $jsBundle.Permalink }}" integrity="{{ $jsBundle.Data.Integrity }}"></script>

@@ -1,0 +1,7 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<div class="mt-3 clearfix">
+    <a {{if $pag.HasPrev}}href="{{ $pag.Prev.URL }}"{{end}} class="float-left bg-white font-semibold py-2 px-4 border rounded shadow-md {{if $pag.HasPrev}}cursor-pointer text-gray-800 hover:bg-gray-100{{else}}cursor-default text-gray-500{{end}}">Previous</a>
+    <a {{if $pag.HasNext}}href="{{ $pag.Next.URL }}"{{end}} class="float-right bg-white font-semibold py-2 px-4 border rounded shadow-md {{if $pag.HasNext}}cursor-pointer text-gray-800 hover:bg-gray-100{{else}}cursor-default text-gray-500{{end}}">Next</a>
+</div>
+{{ end }}

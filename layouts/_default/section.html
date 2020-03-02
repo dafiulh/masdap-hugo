@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+{{ $posts := where .Data.Pages.ByDate.Reverse "Type" "posts" }}
+{{ range $i, $v := $posts }}
+{{ $prev := index $posts (add -1 $i) }}
+{{ if ne (.Date.Format "2006") ($prev.Date.Format "2006") }}
+<h2 class="border-b-2 pb-2 text-gray-800{{ if $prev }} mt-6{{ else }} mt-0{{end}} mb-4">{{ .Date.Format "2006" }}</h2>
+{{ end }}
+<div class="flex flex-wrap py-1 mb-4 md:mb-2 text-gray-800">
+    <span class="text-lg md:text-md font-medium w-48 flex-grow-0" title="{{ .Date }}">{{ .Date.Format "02 January 2006" }}</span>
+    <span class="flex-single md:flex-auto cursor-pointer hover:text-blue-700">
+        <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </span>
+</div>
+{{ end }}
+
+{{ end }}

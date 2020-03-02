@@ -1,0 +1,17 @@
+title = "Masdap"
+baseurl = "https://masdap.now.sh/"
+
+googleAnalytics = "undefined"
+disqusShortname = "masdap-blog"
+
+paginate = 6
+
+[author]
+    name = "Dafiul Haq"
+    homepage = "https://github.com/dafiulh"
+    bio = "Pecandu teknologi & programming"
+    image = "https://avatars3.githubusercontent.com/u/30594815"
+
+[params]
+    subtitle = "Tempatnya belajar Web Programming"
+    mainSections = ["posts"]

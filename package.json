@@ -1,0 +1,22 @@
+{
+  "name": "masdap",
+  "version": "0.1.0",
+  "description": "Just another blog",
+  "author": "Dafiul Haq",
+  "scripts": {
+    "index": "node generate-index.js",
+    "start": "cross-env NODE_ENV=development hugo server --gc --disableFastRender",
+    "build": "cross-env NODE_ENV=production hugo --gc --minify",
+    "deploy": "now --prod"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.0.6",
+    "autoprefixer": "^9.7.4",
+    "cross-env": "^7.0.0",
+    "glob": "^7.1.6",
+    "gray-matter": "^4.0.2",
+    "postcss": "^7.0.26",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
+  }
+}

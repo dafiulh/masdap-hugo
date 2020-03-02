@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+<div class="mb-8">
+    <h1 class="mt-0 mb-3 font-medium">{{ .Title }}</h1>
+    <div class="">Published on <em>{{ dateFormat "02 Jan 2006 15:04" .Date }}</em>{{ with .Params.categories }} at <a href="/categories/{{ . | urlize }}" class="text-blue-600">{{ . }}{{ end }}</a></div>
+    {{ if ne .Type "page" }}
+    {{ if gt .Params.tags 0 }}
+    <div class="mt-2">
+        {{ range .Params.Tags }}
+        <a href="{{ $.Site.LanguagePrefix | absURL }}tags/{{ . | urlize }}" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-medium text-gray-700 m-1 ml-0">#{{lower .}}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{ with .Params.Image }}
+    <div class="mt-6 -mx-7 md:mx-0 md:border-t-2 md:pt-6">
+        <img class="lazy w-full max-w-2xl mx-auto img-blur" data-src="{{ . }}" src="/images/no-image.svg" alt="{{ $.Title }}">
+    </div>
+    {{ end }}
+    {{ end }}
+</div>
+<div id="content" class="leading-relaxed">
+    {{ .Content }}
+</div>
+{{ if ne .Type "page" }}
+<div class="mt-8">
+    {{ partial "disqus.html" . }}
+</div>
+{{ end }}
+
+{{ end }}

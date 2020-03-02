@@ -1,0 +1,27 @@
+<div id="header" class="bg-white px-6 py-4 z-50 fixed w-full top-0 transform transition-all ease-in-out duration-500 shadow-md">
+    <nav class="max-w-5xl mx-auto flex items-center flex-wrap justify-between">
+        <div class="md:mr-8">
+            <a class="flex items-center" href="{{ .Site.BaseURL }}">
+                <img class="w-8 h-8 mr-2" src="/images/logo.svg" alt="Site logo">
+                <span class="text-xl text-blue-700 font-medium self-center">{{ .Site.Title }}</span>
+            </a>
+        </div>
+        <div id="menu" class="hidden md:flex order-last md:order-none items-center flex-grow w-full md:w-auto">
+            {{ $item_class := "block mt-4 md:inline-block md:mt-0 font-medium text-gray-700 hover:text-blue-600 text-base mr-4" }}
+            <a href="/about" class="{{$item_class}}">About</a>
+            <a href="/posts" class="{{$item_class}}">Archive</a>
+            <a href="/categories" class="{{$item_class}}">Categories</a>
+            <a href="/tags" class="{{$item_class}}">Tags</a>
+        </div>
+        <div id="search" class="hidden flex-grow items-center justify-end">
+            <input type="text" placeholder="Search here (Press &quot;enter&quot; to search)" class="bg-gray-100 focus:outline-none focus:placeholder-gray-400 h-8 mr-3 p-4 placeholder-gray-500 rounded text-sm w-full max-w-md">
+        </div>
+        <div class="flex items-center">
+            {{ $icon_class := "text-gray-700 hover:text-blue-600 cursor-pointer ml-4" }}
+            <span id="search-toggle" class="{{$icon_class}}">
+                <a href="/search">{{partial "icons/search.svg" .}}</a>
+            </span>
+            <span id="menu-toggle" class="{{$icon_class}} md:hidden">{{partial "icons/menu.svg" .}}</span>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<div class="flex flex-wrap -mx-2">
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+    {{ range $paginator.Pages }}
+    {{ partial "post-grid.html" . }}
+    {{ end }}
+</div>
+{{ partial "paginator.html" . }}
+
+{{ end }}

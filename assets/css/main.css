@@ -1,0 +1,139 @@
+/* purgecss start ignore */
+  
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/Inter-Regular.woff2?v=3.12") format("woff2"),
+         url("/fonts/Inter-Regular.woff?v=3.12") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("/fonts/Inter-Medium.woff2?v=3.12") format("woff2"),
+         url("/fonts/Inter-Medium.woff?v=3.12") format("woff");
+}
+  
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("/fonts/Inter-SemiBold.woff2?v=3.12") format("woff2"),
+         url("/fonts/Inter-SemiBold.woff?v=3.12") format("woff");
+}
+
+@tailwind base;
+
+body {
+    font-family: Inter,system-ui,-apple-system,BlinkMacSystemFont,helvetica,Arial,sans-serif;
+}
+
+h1 {
+    @apply font-semibold mb-4 mt-6 leading-tight text-3xl;
+}
+
+h2 {
+    @apply font-semibold mb-4 mt-6 leading-tight text-2xl;
+}
+
+h3 {
+    @apply font-semibold mb-4 mt-6 leading-snug text-xl;
+}
+
+h4 {
+    @apply font-semibold mb-4 mt-6 leading-none text-lg;
+}
+
+h5 {
+    @apply font-semibold mb-4 mt-6 leading-tight text-base;
+}
+
+h6 {
+    @apply font-semibold mb-4 mt-6 leading-tight text-base text-gray-600;
+}
+
+strong {
+    @apply font-semibold;
+}
+
+code {
+    @apply font-mono text-sm inline bg-gray-200 rounded px-1 py-1/2;
+}
+
+pre {
+    @apply bg-gray-200 p-4 rounded overflow-auto;
+}
+
+pre code {
+    @apply block bg-transparent p-0 overflow-visible rounded-none;
+}
+
+kbd {
+    @apply text-xs inline-block border px-1 py-1/2 align-middle font-normal font-mono shadow rounded;
+}
+
+blockquote {
+    @apply text-base border-l-4 border-gray-300 ml-4 pl-4 pr-4 text-gray-600;
+}
+
+#content > * {
+    @apply mb-4;
+}
+
+#content a {
+    @apply text-blue-600 font-semibold;
+}
+
+#content strong a {
+    @apply font-bold;
+}
+
+#content ul {
+    @apply text-base pl-8 list-disc;
+}
+
+#content ol {
+    @apply text-base pl-8 list-decimal;
+}
+
+#content li + li {
+    @apply mt-1;
+}
+
+#content li > p + p {
+    @apply mt-6;
+}
+
+#content table {
+    @apply text-base border-gray-600;
+}
+
+#content th {
+    @apply border py-1 px-3;
+}
+
+#content td {
+    @apply border py-1 px-3;
+}
+
+#content h1:hover > a, #content h2:hover > a, #content h3:hover > a, #content h4:hover > a {
+    @apply opacity-100;
+}
+
+
+@tailwind components;
+
+
+/* purgecss end ignore */
+
+
+@tailwind utilities;
+
+.img-blur {
+    filter: blur(3px);
+}

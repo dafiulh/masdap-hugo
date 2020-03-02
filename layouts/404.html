@@ -1,0 +1,17 @@
+{{ define "title" }}Page Not Found - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<div class="flex flex-col md:flex-row items-center">
+    <div class="md:mr-7 text-gray-800">
+        {{ partial "icons/frown.svg" . }}
+    </div>
+    <div class="text-center md:text-left text-gray-800">
+        <h1 class="my-2 text-6xl">404</h1>
+        <h2 class="mb-3 mt-0">Upss! Sepertinya anda tersesat</h2>
+        <p class="mb-4 md:mb-3 text-gray-600">Halaman yang anda cari tidak dapat ditemukan. Sepertinya sudah dihapus atau sudah diubah namanya, atau coba periksa ulang alamat URL dengan benar.</p>
+        <a href="/" class="text-blue-600 font-semibold">Kembali ke halaman utama</a>
+    </div>
+</div>
+
+{{ end }}

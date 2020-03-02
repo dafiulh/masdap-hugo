@@ -1,0 +1,81 @@
+{{ define "title" }}Search - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<div class="flex items-center px-4 py-3 w-full md:w-2/3 md:mx-auto mb-5 text-gray-600 border border-gray-200 focus-within:border-blue-200 rounded shadow-md">
+    {{partial "icons/search.svg" .}}
+    <input type="search" id="searchbox" class="focus:outline-none ml-3 w-full" placeholder="Search here ...">
+</div>
+
+<div id="wrapper" class="flex flex-wrap -mx-2"></div>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(async function() {
+
+    let query = new URL(window.location.href).searchParams;
+    let q = query.get("q");
+    let max = query.get("limit") || 12;
+    let sbox = document.getElementById("searchbox");
+    let wrapper = document.getElementById("wrapper");
+    let posts = await fetch("/index.json").then(res => res.json());
+
+    let insertEl = function(key) {
+        
+        let element = "";
+        let filtered = posts.filter(v => v.title.toLowerCase().indexOf(key.toLowerCase()) !== -1);
+
+        if (filtered.length === 0) {
+            wrapper.innerHTML = "<span class=\"mt-2 mx-auto text-lg text-gray-600\">Tidak menemukan hasil untuk \""+key.toLowerCase()+"\"</span>";
+            return;
+        }
+
+        if (filtered.length > max) filtered.length = max;
+
+        filtered.forEach(post => {
+
+            let {url, title, image} = post;
+
+            url = "/posts/" + url;
+            image = image == undefined ? "/images/no-image.svg" : image;
+
+            element += `
+            <div class="flex-single sm:flex-half md:flex-third self-stretch p-2 mb-2">
+                <div class="rounded shadow-lg h-full">
+                    <a href="${url}">
+                        <img class="w-full m-0 rounded-t" src="${image}" alt="${title}">
+                    </a>
+                    <div class="px-6 py-4">
+                        <div class="font-semibold text-lg mb-1">
+                            <a class="text-gray-900 hover:text-gray-700" href="${url}">${title}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+
+        });
+
+        wrapper.innerHTML = element;
+
+    }
+
+    if(q !== null) {
+        sbox.value = q.toLowerCase();
+        insertEl(q);
+    }
+
+    sbox.addEventListener("keyup", function(e) {
+        this.value = this.value.toLowerCase();
+        if(e.key === "Enter") {
+            history.replaceState(null, null, "?q=" + this.value + "&limit=" + max);
+            wrapper.innerHTML = "";
+            if(this.value !== "") insertEl(this.value);
+        }
+    });
+
+})();
+</script>
+{{ end }}

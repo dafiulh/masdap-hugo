@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<div class="border mt-0 mb-5 px-5 py-4 rounded shadow-md">
+    <div class="font-semibold m-0 text-gray-900 text-lg">
+        <span class="hidden md:inline">Hasil artikel dengan {{ .Data.Singular }} </span>
+        <span class="md:hidden">{{ .Data.Singular | title }}: </span>
+        <span class="text-gray-700">{{ .Data.Term | lower }}</span>
+    </div>
+</div>
+
+<div class="flex flex-wrap -mx-2">
+    {{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "posts") }}
+    {{ range $paginator.Pages }}
+    {{ partial "post-grid.html" . }}
+    {{ end }}
+</div>
+{{ partial "paginator.html" . }}
+
+{{ end }}

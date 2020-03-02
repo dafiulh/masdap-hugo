@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<h1 class="text-gray-800 font-medium mt-0 mb-5">Daftar {{ .Data.Singular }}</h1>
+{{ range .Data.Terms.ByCount }}
+<a href="{{ $.Site.LanguagePrefix | absURL }}{{ $.Data.Plural }}/{{ .Name | urlize }}/" class="inline-block mb-3 mr-1 px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-full">
+    {{- .Name -}}
+    <span class="px-2 py-1 ml-2 text-xs font-semibold bg-blue-200 text-blue-800 rounded-full">{{ len .Pages }}</span>
+</a>
+{{ end }}
+
+{{ end }}

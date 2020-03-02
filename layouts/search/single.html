@@ -60,12 +60,12 @@
 
         wrapper.innerHTML = element;
 
-    }
+    };
 
     if(q !== null) {
         sbox.value = q.toLowerCase();
         insertEl(q);
-    }
+    };
 
     sbox.addEventListener("keyup", function(e) {
         this.value = this.value.toLowerCase();
@@ -73,7 +73,7 @@
             history.replaceState(null, null, "?q=" + this.value + "&limit=" + max);
             wrapper.innerHTML = "";
             if(this.value !== "") insertEl(this.value);
-        }
+        };
     });
 
 })();

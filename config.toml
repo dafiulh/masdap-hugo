@@ -1,8 +1,8 @@
 title = "Masdap"
 baseurl = "https://masdap.netlify.com/"
 
-googleAnalytics = "undefined"
-disqusShortname = "masdap-blog"
+# googleAnalytics = ""
+# disqusShortname = ""
 
 paginate = 6
 

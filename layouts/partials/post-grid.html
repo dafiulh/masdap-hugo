@@ -1,13 +1,13 @@
 <div class="flex-single sm:flex-half md:flex-third self-stretch p-2 mb-2">
-    <div class="rounded shadow-lg h-full">
+    <div class="rounded shadow-md h-full">
         <a href="{{ .RelPermalink }}">
             <img class="lazy w-full m-0 rounded-t img-blur" data-src="{{ .Params.Image }}" src="/images/no-image.svg" alt="{{ .Title }}">
         </a>
-        <div class="px-6 py-4">
-            <div class="font-semibold text-lg mb-1">
+        <div class="px-6 py-5">
+            <div class="font-semibold text-lg mb-2">
                 <a class="text-gray-900 hover:text-gray-700" href="{{ .RelPermalink }}">{{ .Title }}</a>
             </div>
-            <p class="text-gray-600 text-base" title="{{ .Date }}">{{ .Date.Format "02 Jan 2006 15:04" }}</p>
+            <p class="text-gray-600 text-base mb-1" title="{{ .Date }}">{{ .Date.Format "02 Jan 2006 15:04" }}</p>
             <p class="text-gray-700 text-tiny">
                 {{ if isset .Params "description" }}
                 {{ .Description }}

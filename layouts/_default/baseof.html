@@ -35,7 +35,7 @@
         <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
         <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
         {{ $style := resources.Get "css/main.css" | postCSS | minify | fingerprint -}}
-		<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" media="screen" crossorigin="anonymous" />
+		<link rel="stylesheet" href="{{ $style.RelPermalink }}" media="screen" crossorigin="anonymous" />
 
 		{{- block "head" . -}} {{- end }}
 	</head>	
